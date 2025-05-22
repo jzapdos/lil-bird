@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Ensure padding/border does not affect width calculation */
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit; /* Apply box-sizing to all elements */
+  }
+  
+  .navbar {
+    background-color: #a65b2f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; /* Reduced padding to avoid overflow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box; /* Prevent overflow due to padding */
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Adjust gap for better fit */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .logo {
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+  }
+  
+  .logo img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  .nav-links li {
+    margin-left: 10px; /* Reduced margin to save space */
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  .carousel-slides {
+    width: 300%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    width: 100vw;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+  }
+  
+  .s1 { background-image: url("image/block2.jpg"); }
+  .s2 { background-image: url("image/block4.jpg"); }
+  .s3 { background-image: url("image/block5.jpg"); }
+  
+  #slide1:checked ~ .carousel-slides { transform: translateX(0); }
+  #slide2:checked ~ .carousel-slides { transform: translateX(-100vw); }
+  #slide3:checked ~ .carousel-slides { transform: translateX(-200vw); }
+  
+  .carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .carousel-nav label {
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carousel-nav label:hover {
+    opacity: 1;
+  }
+  
+  .summary-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .summary-overlay .summary {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .summary-overlay .explore-btn {
+    background-color: #d19961;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    z-index: 3;
+    cursor: pointer;
+  }
+  
+  .prev {
+    left: 20px;
+  }
+  
+  .next {
+    right: 20px;
+  }
+
+  footer .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 75px 20px; /* adds left/right spacing */
+    max-width: 1200px;   /* limits how wide it can stretch */
+    margin: 0 auto;      /* centers the footer container */
+  }
+
+.bg-black {
+  background-color: rgb(41, 41, 41);
+}
+
+footer .text {
+    display: flex;
+    flex-direction: column;
+    color: #cccccc;
+}
+
+footer .text p.company {
+    color: white;
+}
+
+footer .text a,
+footer .text p.copyright {
+    text-decoration: none;
+  color:white;
+}
+
+footer .text a:hover {
+  color:#fff;
+    text-decoration: underline;
+}
+
+  
+.add-to-cart {
+  margin: 10px auto 20px;
+  padding: 10px 15px;
+  background-color: #a65b2f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.add-to-cart:hover {
+  background-color: #874928;
+}
+
+#cart {
+  display: none;
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 350px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 10000;
+}
+
+#cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+#cart li {
+  margin: 10px 0;
+}
+
+.remove-btn,
+.decrease-btn {
+  margin-left: 10px;
+  padding: 2px 5px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #c0392b;
+  color: white;
+}
+
+.decrease-btn {
+  background-color: #858585;
+}
